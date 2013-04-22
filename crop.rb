@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'mini_magick'
 require 'optparse'
-require 'pry'
 
 options = {}
 option_parser = OptionParser.new do |opts|
@@ -65,8 +64,6 @@ if files.empty?
   puts "No files"
   exit
 end
-
-binding.pry
 
 Dir[input].each do |file_url|
   puts "Croping #{file_url}"
