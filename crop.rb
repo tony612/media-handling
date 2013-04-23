@@ -68,6 +68,6 @@ end
 Dir[input].each do |file_url|
   puts "Croping #{file_url}"
   img = MiniMagick::Image.open(file_url)
-  img.crop("#{width}x#{height}+#{x}+#{y}")
+  img.crop("%dx%d+%d+%d" % [width, height, x, y])
   img.write(file_url)
 end
