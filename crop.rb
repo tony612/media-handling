@@ -31,6 +31,10 @@ Notice: And Please backup the pictures"
     options[:input] = d
   end
 
+  opts.on("-v", "--verbose", "Whether print the log") do |v|
+    options[:verbose] = v
+  end
+
   opts.separator ""
   opts.separator "Common options:"
 
@@ -57,6 +61,7 @@ y = options[:y] || 0
 height = options[:height]
 width = options[:width]
 input = options[:input]
+is_verbose = options[:verbose]
 
 files = Dir[input]
 
@@ -66,7 +71,9 @@ if files.empty?
 end
 
 Dir[input].each do |file_url|
-  puts "Croping #{file_url}"
+  if is_verbose
+    puts "Croping #{file_url}"
+  end
   img = MiniMagick::Image.open(file_url)
   img.crop("%dx%d+%d+%d" % [width, height, x, y])
   img.write(file_url)
