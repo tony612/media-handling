@@ -29,6 +29,10 @@ Notice: And Please backup the pictures"
     options[:input] = d
   end
 
+  opts.on("-v", "--verbose", "Whether print the log") do |v|
+    options[:verbose] = v
+  end
+
   opts.separator ""
   opts.separator "Common options:"
 
@@ -54,6 +58,7 @@ height = options[:height]
 width = options[:width]
 percent = options[:percent]
 input = options[:input].strip
+is_verbose = options[:verbose]
 
 files = Dir[input]
 
@@ -63,7 +68,10 @@ if files.empty?
 end
 
 Dir[input].each do |file_url|
-  puts "Resizing #{file_url.green}"
+  if is_verbose
+    puts "Resizing #{file_url.green}"
+  end
+  
   img = MiniMagick::Image.open(file_url)
   if height && width
     img.resize("#{width}x#{height}!")
