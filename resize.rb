@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'mini_magick'
 require 'optparse'
+require './lib/string_decorator'
 
 options = {}
 option_parser = OptionParser.new do |opts|
@@ -62,14 +63,15 @@ is_verbose = options[:verbose]
 files = Dir[input]
 
 if files.empty?
-  puts "No files"
+  puts "No files".red
   exit
 end
 
 Dir[input].each do |file_url|
   if is_verbose
-    puts "Resizing #{file_url}"
+    puts "Resizing #{file_url.green}"
   end
+  
   img = MiniMagick::Image.open(file_url)
   if height && width
     img.resize("#{width}x#{height}!")
