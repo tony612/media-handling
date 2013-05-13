@@ -5,7 +5,7 @@ require 'optparse'
 options = {}
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage:
-resize.rb -h 300 -w 400 -d \"/path/to/**/*.*\"
+resize.rb [-h 300] [-w 400] -d \"/path/to/**/*.*\"
 or resize.rb -p 30% -d \"/path/to/**/*.png\"
 Notice: And Please backup the pictures"
 
