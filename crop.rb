@@ -4,7 +4,7 @@ require 'optparse'
 
 options = {}
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: crop.rb -x 100 -y 200 -h 300 -w 400 -d \"/path/to/*.png\"
+  opts.banner = "Usage: crop.rb -x 100 -y 200 -h 300 -w 400 -d \"/path/to/**/*.png\"
 Notice: And Please backup the pictures"
 
   opts.separator ""
