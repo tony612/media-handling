@@ -1,4 +1,4 @@
-These are some useful scripts for media files handling such as image croping, resizing and video frames extraction and so on.
+These are some useful scripts for media files handling such as image cropping, resizing and video frames extraction and so on.
 It make use of MiniMagick to do the image handling.
 
 ## Usage
