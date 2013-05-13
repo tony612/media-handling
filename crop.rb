@@ -66,13 +66,13 @@ is_verbose = options[:verbose]
 files = Dir[input]
 
 if files.empty?
-  puts "No files"
+  puts "No files".red
   exit
 end
 
 Dir[input].each do |file_url|
   if is_verbose
-    puts "Croping #{file_url}"
+    puts "Croping #{file_url.green}"
   end
   img = MiniMagick::Image.open(file_url)
   img.crop("%dx%d+%d+%d" % [width, height, x, y])
